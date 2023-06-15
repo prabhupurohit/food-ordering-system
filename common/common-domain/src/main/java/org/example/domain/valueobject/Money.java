@@ -3,8 +3,11 @@ package org.example.domain.valueobject;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
+import java.util.function.BinaryOperator;
 
 public class Money {
+
+    public static final Money ZERO = new Money(BigDecimal.ZERO);
 
     //Making it final and setting it via the constructor makes the value object immutable
     private final BigDecimal amount;

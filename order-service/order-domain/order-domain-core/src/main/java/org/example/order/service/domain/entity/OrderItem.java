@@ -17,6 +17,20 @@ public class OrderItem extends BaseEntity<OrderItemId> {
     private final Money price;
     private final Money subTotal;
 
+    //Business logic for Order Item Class goes here
+    //The initializeOrderItems() method will be only called from the Order Class which is the root of the aggregate entity
+    //Hence the access modifier should be default in this case and not public
+    void initializeOrderItems(OrderId orderId, OrderItemId orderItemId) {
+        this.orderId = orderId;
+        super.setId(orderItemId);
+    }
+
+    boolean isPriceValid() {
+        return price.isGreaterThanZero() &&
+                price.equals(product.getPrice()) &&
+                price.multiply(quantity).equals(subTotal);
+    }
+
     //As the constructor is private, we need to use builder to create this object
     private OrderItem(Builder builder) {
         super.setId(builder.orderItemId);
@@ -25,7 +39,6 @@ public class OrderItem extends BaseEntity<OrderItemId> {
         price = builder.price;
         subTotal = builder.subTotal;
     }
-
 
     public OrderId getOrderId() {
         return orderId;
@@ -46,6 +59,7 @@ public class OrderItem extends BaseEntity<OrderItemId> {
     public Money getSubTotal() {
         return subTotal;
     }
+
 
     public static final class Builder {
         private OrderItemId orderItemId;
