@@ -169,6 +169,12 @@ public class Order extends AggregateRoot<OrderId> {
         return failureMessages;
     }
 
+    //The newBuilder() method is generated inside the Builder class by the plugin
+    //We can take this out and rename to builder() so that we can call this directly on the Order Class
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public static final class Builder {
         private OrderId orderId;
         private CustomerId customerId;
@@ -181,10 +187,6 @@ public class Order extends AggregateRoot<OrderId> {
         private List<String> failureMessages;
 
         private Builder() {
-        }
-
-        public static Builder builder() {
-            return new Builder();
         }
 
         public Builder orderId(OrderId val) {
