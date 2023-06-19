@@ -62,11 +62,11 @@ public class OrderDataMapper {
         );
     }
 
-    public CreateOrderResponse orderToCreateOrderResponse(Order order) {
+    public CreateOrderResponse orderToCreateOrderResponse(Order order, String message) {
         return CreateOrderResponse.builder()
                 .orderStatus(order.getOrderStatus())
                 .trackingId(order.getTrackingId().getValue())
-                //.message() -> Should Response message be set here?
+                .message(message)
                 .build();
     }
 
