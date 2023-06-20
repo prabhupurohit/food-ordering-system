@@ -1,0 +1,14 @@
+To Bring up the Servers
+-----------------------
+docker-compose -f common.yml -f zookeeper.yml up
+To check the health of Zookeeper: echo ruok | nc localhost 2181
+docker-compose -f common.yml -f kafka-cluster.yml up
+docker-compose -f common.yml -f init_kafka.yml up
+
+To Bring down the Servers
+-------------------------
+To stop the Cluster: Ctrl+C
+docker-compose -f common.yml -f kafka-cluster.yml down
+
+To stop the Zookeeper: Ctrl+C
+docker-compose -f common.yml -f zookeeper.yml down
