@@ -23,6 +23,8 @@ public class Order extends AggregateRoot<OrderId> {
     private OrderStatus orderStatus;
     private List<String> failureMessages;
 
+    public static final String FAILURE_MESSAGE_DELIMITER = ",";
+
     //Here all the business logic specific to the Order to be added
 
     //Following are the validation methods
