@@ -9,6 +9,7 @@
         <module>infrastructure</module>
         <module>infrastructure/kafka/kafka-config-data</module>
         <module>customer-service</module>
+        <module>payment-service</module>
     </modules>
 
     <parent>
