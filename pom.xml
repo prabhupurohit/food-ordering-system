@@ -10,6 +10,7 @@
         <module>infrastructure/kafka/kafka-config-data</module>
         <module>customer-service</module>
         <module>payment-service</module>
+        <module>restaurant-service</module>
     </modules>
 
     <parent>
@@ -78,6 +79,26 @@
             <dependency>
                 <groupId>org.example</groupId>
                 <artifactId>payment-messaging</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>restaurant-domain-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>restaurant-application-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>restaurant-dataaccess</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>restaurant-messaging</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
