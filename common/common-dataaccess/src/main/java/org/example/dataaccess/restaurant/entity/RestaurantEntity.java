@@ -1,4 +1,4 @@
-package org.example.order.service.dataaccess.restaurant.entity;
+package org.example.dataaccess.restaurant.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -27,11 +27,12 @@ public class RestaurantEntity {
     private UUID restaurantId;
     @Id
     private UUID productId;
-
     private String restaurantName;
-    private boolean restaurantActive;
+    private Boolean restaurantActive;
     private String productName;
     private BigDecimal productPrice;
+    //This field is required in the Restaurant bounded context and not in the Order Context
+    private Boolean productAvailable;
 
     @Override
     public boolean equals(Object o) {
